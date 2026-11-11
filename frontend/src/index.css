@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "@heroui/styles/css";
+@import "@fontsource-variable/inter";
+
+/* HeroUI 语义 token 已由 @heroui/styles 注入(--background/--foreground/--surface…),
+   这里只补项目级基础样式,不写死颜色 */
+
+:root {
+  --app-font: "Inter Variable", "Inter", system-ui, "PingFang SC",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+html {
+  font-family: var(--app-font);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  /* 移动端底部 TabBar 不被浏览器工具栏遮挡 */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 热敏纸预览:白纸黑字,与主题无关 */
+.thermal-paper {
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--app-font);
+}

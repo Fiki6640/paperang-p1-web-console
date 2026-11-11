@@ -1,0 +1,15 @@
+[Unit]
+Description=Paperang P1 RFCOMM Bind
+After=bluetooth.target
+Wants=bluetooth.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c 'rfcomm release rfcomm0 2>/dev/null; sleep 1; rfcomm bind rfcomm0 AA:BB:CC:DD:EE:FF 1   # 改成你的打印机 MAC'
+ExecStop=/bin/bash -c 'rfcomm release rfcomm0 2>/dev/null'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

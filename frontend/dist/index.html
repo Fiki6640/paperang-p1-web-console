@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0c" />
+    <title>Paperang P1 控制台</title>
+    <script>
+      // 首帧前应用主题,避免暗色用户看到白闪
+      (function () {
+        try {
+          var t = localStorage.getItem("paperang-theme") || "system";
+          var dark =
+            t === "dark" ||
+            (t === "system" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+      // 模块加载错误收集(诊断用,保留无害)
+      window.__errs = [];
+      window.addEventListener("error", function (e) {
+        window.__errs.push(String(e.message) + " @ " + e.filename + ":" + e.lineno);
+      });
+      window.addEventListener("unhandledrejection", function (e) {
+        window.__errs.push("REJ: " + String((e.reason && e.reason.stack) || e.reason));
+      });
+    </script>
+    <script type="module" crossorigin src="/assets/index-B974yMk9.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BeWKDrO6.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+# 核心依赖
+pyserial>=3.5
+Pillow>=9.0.0
+numpy>=1.21.0
+
+# Web
+Flask>=2.0.0
+
+# 定时任务
+APScheduler>=3.9.0
+
+# 天气
+requests>=2.28.0

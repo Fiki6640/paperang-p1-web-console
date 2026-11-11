@@ -1,0 +1,21 @@
+[Unit]
+Description=Paperang P1 Web Print Server
+After=network.target bluetooth.target paperang-rfcomm.service
+Requires=paperang-rfcomm.service
+Wants=bluetooth.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/paperang-p1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /home/pi/paperang-p1/app.py
+Restart=on-failure
+RestartSec=10
+StartLimitInterval=60
+StartLimitBurst=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

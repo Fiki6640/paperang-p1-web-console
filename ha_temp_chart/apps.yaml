@@ -1,0 +1,25 @@
+# AppDaemon 应用配置样例。
+# 追加到 AppDaemon 插件的 apps.yaml(路径 /addon_configs/a0d7b954_appdaemon/apps/apps.yaml),
+# 或整体放进本目录作为该应用的独立配置。
+# ha_token 建议写入同目录 secrets.yaml: ha_token: "xxxxxx"
+
+temp_chart_daily:
+  module: appdaemon_temp_chart
+  class: TempChartDaily
+  run_time: "00:00:00"          # 每天 0 点生成前一天的温度图
+  run_on_start: true            # AppDaemon 启动时也生成一次,便于验证
+  ha_url: "http://homeassistant.local:8123"   # 改成你的 HA 地址(容器内也可用 http://supervisor/core 需另行配置令牌)
+  ha_token: "!secret ha_token"  # HA 网页端: 用户头像 → 安全 → 长期访问令牌
+  entity_id: "sensor.your_temperature_sensor"
+  # 以下可省略
+  days_ago: 1                   # 1 = 前一天(0 点跑时即"刚结束的那天")
+  output_path: "/homeassistant/www/temperature_chart.png"  # AppDaemon 容器内 HA www 目录的映射路径
+  width: 1000
+  # font_path: "/addon_configs/a0d7b954_appdaemon/apps/temp_chart/LXGWWenKai-Medium.ttf"
+
+  # --- 打印(树莓派上的 paperang Web 服务),不需要打印就删掉 print_url ---
+  # 生成后把打印副本旋转 90°(顺时针,时间轴竖排、384px 宽下可读性最好)POST 给打印机,
+  # output_path 保存的图保持横版不受影响
+  print_url: "http://192.168.1.20:5000"   # 改成树莓派的 IP,paperang-web.service 默认端口 5000
+  print_rotate: 90              # 打印副本顺时针旋转角度(0/90/180/270)
+  print_method: "threshold"     # threshold 适合线图,dither 适合照片类
