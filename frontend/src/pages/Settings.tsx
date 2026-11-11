@@ -492,15 +492,15 @@ function Section({ icon: Icon, title, desc, extra, children }: {
 }) {
   return (
     <section className="rounded-large border border-default-200 bg-content1 p-5">
-      <div className="mb-4 flex items-start justify-between gap-3">
-        <div className="flex items-start gap-3">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
           <div className="flex size-9 shrink-0 items-center justify-center rounded-medium bg-primary/10 text-primary">
             <Icon size={17} aria-hidden />
           </div>
-          <div>
-            <h2 className="text-[15px] font-semibold">{title}</h2>
-            {desc ? <p className="mt-0.5 text-xs text-foreground/60">{desc}</p> : null}
-          </div>
+          <h2 className="shrink-0 text-[15px] font-semibold">{title}</h2>
+          {desc ? (
+            <p className="truncate text-xs text-foreground/55">{desc}</p>
+          ) : null}
         </div>
         {extra}
       </div>
