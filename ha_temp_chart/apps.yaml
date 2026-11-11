@@ -20,6 +20,6 @@ temp_chart_daily:
   # --- 打印(树莓派上的 paperang Web 服务),不需要打印就删掉 print_url ---
   # 生成后把打印副本旋转 90°(顺时针,时间轴竖排、384px 宽下可读性最好)POST 给打印机,
   # output_path 保存的图保持横版不受影响
-  print_url: "http://192.168.1.20:5000"   # 改成树莓派的 IP,paperang-web.service 默认端口 5000
+  print_url: "http://192.0.2.20:5000"   # 改成树莓派的 IP,paperang-web.service 默认端口 5000
   print_rotate: 90              # 打印副本顺时针旋转角度(0/90/180/270)
   print_method: "threshold"     # threshold 适合线图,dither 适合照片类

@@ -131,7 +131,7 @@ ENABLE_DAILY_TEMP_CHART = True
 TEMP_PRINT_TIME = "00:05"
 
 # 温度曲线数据源
-TEMP_HA_URL = ""              # HA 地址，如 http://192.168.1.10:8123
+TEMP_HA_URL = ""              # HA 地址，如 http://192.0.2.10:8123
 TEMP_HA_TOKEN = ""            # HA 长期访问令牌
 TEMP_ENTITY_ID = "sensor.xxx"
 ```

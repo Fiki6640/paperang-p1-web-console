@@ -31,7 +31,7 @@
 python temp_chart.py --demo --out demo.png
 
 # 真实数据:昨天全天(0 点跑的就是这条)
-python temp_chart.py --ha-url http://192.168.1.10:8123 --token <长期访问令牌> \
+python temp_chart.py --ha-url http://192.0.2.10:8123 --token <长期访问令牌> \
     --entity sensor.your_temperature_sensor \
     --out temperature_chart.png
 
@@ -105,7 +105,7 @@ python temp_chart.py --demo --rotate 90 --out portrait.png
 AppDaemon 方式在 `apps.yaml` 里加三项即可(样例已含):
 
 ```yaml
-  print_url: "http://192.168.1.20:5000"   # 树莓派 paperang Web 服务
+  print_url: "http://192.0.2.20:5000"   # 树莓派 paperang Web 服务
   print_rotate: 90
   print_method: "threshold"
 ```

@@ -437,7 +437,7 @@ def _demo_day(days_ago=1):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description='从 Home Assistant 历史数据生成全天温度曲线图')
-    p.add_argument('--ha-url', default=os.environ.get('HA_URL'), help='HA 地址,如 http://192.168.1.10:8123')
+    p.add_argument('--ha-url', default=os.environ.get('HA_URL'), help='HA 地址,如 http://192.0.2.10:8123')
     p.add_argument('--token', default=os.environ.get('HA_TOKEN'), help='长期访问令牌')
     p.add_argument('--entity', default=DEFAULT_ENTITY, help='温度实体 ID')
     p.add_argument('--days-ago', type=int, default=1, help='0=今天(截至目前) 1=昨天(默认)')
@@ -447,7 +447,7 @@ def main(argv=None):
     p.add_argument('--rotate', type=int, default=0, choices=(0, 90, 180, 270),
                    help='保存的图片顺时针旋转角度(默认 0 不旋转)')
     p.add_argument('--print-url', default=os.environ.get('PRINT_URL'),
-                   help='paperang Web 服务地址(如 http://192.168.1.20:5000),设置后生成即打印')
+                   help='paperang Web 服务地址(如 http://192.0.2.20:5000),设置后生成即打印')
     p.add_argument('--print-rotate', type=int, default=90, choices=(0, 90, 180, 270),
                    help='打印副本顺时针旋转角度(默认 90;不影响 --out 保存的图)')
     p.add_argument('--print-method', default='threshold', choices=('threshold', 'dither'),
